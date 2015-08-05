@@ -1,0 +1,10 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+RewriteLog "/tmp/rewrite.log"
+RewriteLogLevel 9
+
+#Rewrite rule for single blog posts
+RewriteRule ^blog.html blog.php [NC,L]
+RewriteRule ^blog/([A-Za-z0-9-]+)/?$ blog-viewer.php?url=$1 [NC,L]
+RewriteRule ^blog/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)?$ blog-viewer.php?cat=$1&url=$2 [NC,L]

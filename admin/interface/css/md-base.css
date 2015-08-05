@@ -1,0 +1,136 @@
+/*
+ * 1dp  - (.mat-switch)  Switch
+ * 2dp  - (.mat-button)  Button, 
+ * 		  (.mat-search)  Search box/quick entry
+ * 		  (.mat-card)    Cards
+ * 3dp  - (.mat-refresh) Refresh Indicator
+ * 4dp  - (.mat-appbar)  App Bar
+ * 6dp  - (.mat-snack)   Snackbar
+ * 		  (.mat-action)  floating action button
+ * 8dp  - (.mat-menu)    Menu, Every submenu goes up by 1dp
+ * 16dp - (.mat-nav)     Nav Drawer, Right Drawer,
+ * 		  (.mat-bottom)  Bottom Sheet
+ * 24dp - (.mat-dialog)  Dialog Box, Picker
+ *
+ * USER ACTIONS
+ * Buttons, Cards, Floating action buttons go up by 6dps
+ * Quick entry, search box go up by 1 dp.
+ * 	
+ * 
+ */
+
+
+[class*="mat-"] {
+	position: relative;
+}
+
+
+/*1dp high*/
+.mat-switch {
+	box-shadow: 0 0 2px 0 rgba(0,0,0,.2),
+				0 2px 2px rgba(0,0,0,.2);
+	z-index: 10;
+}
+
+/*2dp high*/
+.mat-button,
+.mat-card,
+.mat-search {
+	box-shadow: 0 0 4px 0 rgba(0,0,0,.2),
+				0 2px 4px 2px rgba(0,0,0,.2);
+	border-color: transparent;
+	z-index: 20;
+}
+
+/*3dp high*/
+.mat-refresh {
+	box-shadow: 0 0 4px 0 rgba(0,0,0,.2),
+				0 4px 4px 2px rgba(0,0,0,.2);
+	z-index: 30;
+}
+
+/*4dp high*/
+.mat-appbar {
+	box-shadow: 0 0 4px 0 rgba(0,0,0,.2),
+				0 5px 6px 2px rgba(0,0,0,.2);
+	z-index: 40;
+}
+
+/*6dp high*/
+.mat-snack,
+.mat-action {
+	box-shadow: 0 0 4px 0 rgba(0,0,0,.2),
+				0 8px 6px 2px rgba(0,0,0,.2);
+	border-color: transparent;
+	z-index: 60;
+}
+
+/*8dp high*/
+.mat-menu {
+	box-shadow: 0 0 4px 0 rgba(0,0,0,.2),
+				0 8px 16px 2px rgba(0,0,0,.2);
+	z-index: 80;
+}
+
+/*16dp high*/
+.mat-nav,
+.mat-bottom {
+	box-shadow: 0 0 4px 0 rgba(0,0,0,.2),
+				0 20px 20px 2px rgba(0,0,0,.2);
+	z-index: 160;
+}
+
+/*24dp high*/
+.mat-dialog {
+	box-shadow: 0 0 4px 0 rgba(0,0,0,.2),
+				0 24px 32px 2px rgba(0,0,0,.2);
+	z-index: 240;
+}
+
+/*ACTIONS*/
+
+/*Disabled elements to 1dp*/
+.mat-button:disabled {
+	box-shadow: none;
+	z-index: 10;
+}
+
+.mat-button:hover:disabled {
+	box-shadow: none;
+	border-width: 0;
+	z-index: 10;
+}
+
+/*2dps+1dp high on action*/
+.mat-search:hover {
+	box-shadow: 0 0 4px 0 rgba(0,0,0,.2),
+				0 4px 4px 2px rgba(0,0,0,.2);
+	z-index: 30;
+}
+
+/*2dps+6dp high on action*/
+.mat-button:hover,
+.mat-card:hover {
+	box-shadow: 0 0 4px 0 rgba(0,0,0,.2),
+				0 8px 16px 2px rgba(0,0,0,.2);
+	z-index: 80;
+}
+
+/*6dps+6dps high on action*/
+.mat-action:hover {
+	box-shadow: 0 0 4px 0 rgba(0,0,0,.2),
+				0 14px 22px 4px rgba(0,0,0,.2);
+	z-index: 120;
+}
+
+/*Transitions*/
+.mat-button,
+.mat-card,
+.mat-search,
+.mat-action {
+	-webkit-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	-ms-transition: all .3s ease-out;
+	-o-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+}

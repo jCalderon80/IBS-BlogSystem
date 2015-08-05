@@ -1,0 +1,167 @@
+* {
+	border: 0; 
+	margin: 0;
+}
+
+*,
+.group,
+.group1080,
+[class*="ly-"],
+[class*="ly-"] > *,
+.clear-float {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.group {
+	max-width: 100%;
+}
+
+.group1080 {
+	max-width: 1080px;
+	margin: 0 auto;
+}
+
+[class*="ly-"] > *,
+[class*="ly-"] > * {
+	float: left;
+	display: block;
+}
+
+/* RESETS */
+/*clear floats*/
+.group:after,
+.group1080:after,
+[class*="ly-"]:after,
+.clear-float {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/********************/
+/* 2 COLUMNS LAYOUT */
+/********************/
+
+/* 50% - 50% */
+.ly-2-half > * { width: 50%; }
+.ly-2-third  > *:first-child { width: 33.33%; }
+.ly-2-third > *:last-child { width: 66.67%; }
+
+/* 66.67% - 33.33%*/
+.ly-2-third-rev > *:first-child { width: 66.67%; }
+.ly-2-third-rev > *:last-child { width: 33.33%; }
+
+/* 25% - 75%%*/
+.ly-2-fourth > *:first-child { width: 25%; }
+.ly-2-fourth > *:last-child { width: 75%; }
+
+/* 75%% - 25%*/
+.ly-2-fourth-rev > *:first-child { width: 75%; }
+.ly-2-fourth-rev > *:last-child { width: 25%; }
+
+
+/********************/
+/* 3 COLUMNS LAYOUT */
+/********************/
+
+/* 50% - 25% - 25% */
+.ly-3-half > *:first-child { width: 50%; }
+.ly-3-half > *:nth-child(2),
+.ly-3-half > *:nth-child(3) { width: 25%; }
+
+/* 25% - 25% - 50% */
+.ly-3-half-rev > *:last-child { width: 50%; }
+.ly-3-half-rev > *:first-child,
+.ly-3-half-rev > *:nth-child(2) { width: 25%; }
+
+/* 33.33% - 33.33% - 33.33% */
+.ly-3-third > * { width: 33.33333%; }
+
+/* 25% - 50% - 25% */
+.ly-3-fourth > *:first-child,
+.ly-3-fourth > *:last-child { width: 25%; }
+.ly-3-fourth > *:nth-child(2) { width: 50%; }
+
+
+/********************/
+/* 4 COLUMNS LAYOUT */
+/********************/
+.ly-4-fourth > * { width: 25%; }
+
+/*****************/
+/* START CLASSES */
+/*****************/
+
+[class*="ly-"].start-next > *,
+[class*="ly-"].start-last > * {
+	width: 100%;
+}
+ 
+/* MEDIA QUERIES */
+@media only screen and ( max-width: 959px ) {
+	.no-pad {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.group-child,
+	.group > [class*="ly-"],
+	.group1080 > [class*="ly-"] {
+		padding: 0 12.5%;
+	}
+
+	[class*="ly-"] > *,
+	[class*="ly-"] > *:first-child,
+	[class*="ly-"] > *:last-child,
+	[class*="ly-"] > *:nth-child(2),
+	[class*="ly-"] > *:nth-child(3) { width: 100%; }
+
+	/*preserve-last class will preserve the original layout all the way to small screens*/
+	/*preserve-next class will preserve the original layout until 960px screens*/
+	.ly-2-half.preserve-last > *,
+	.ly-2-half.preserve-next > * { width: 50%; }
+	.ly-2-third.preserve-last > *:first-child,
+	.ly-2-third.preserve-next > *:first-child { width: 33.33% }
+	.ly-2-third.preserve-last > *:last-child,
+	.ly-2-third.preserve-next > *:last-child { width: 66.67% }
+	.ly-2-third-rev.preserve-last > *:first-child,
+	.ly-2-third-rev.preserve-next > *:first-child { width: 66.67% }
+	.ly-2-third-rev.preserve-last > *:last-child,
+	.ly-2-third-rev.preserve-next > *:last-child { width: 33.33% }
+	.ly-3-third.preserve-last > *,
+	.ly-3-third.preserve-next > * { width: 33.33%; }
+	.ly-4-fourth.preserve-last > *,
+	.ly-4-fourth.preserve-next > * { width: 25%; }
+
+	/*start-next class will trigger the ly- classes at this point*/
+	.ly-2-half.start-next > * { width: 50%; }
+	.ly-3-third.start-next > * { width: 33.3333%; }
+	.ly-4-fourth.start-next > * { width: 25%; }
+}
+
+@media only screen and ( max-width: 719px ) {
+	/*Remove padding for small devices*/
+	.group-child,
+	.group > [class*="ly-"],
+	.group1080 > [class*="ly-"] {
+		padding: 0;
+	}
+
+	/* Resetting preserve-next class to 100% width */
+	.ly-2-half.preserve-next > *,
+	.ly-2-third.preserve-next > *:first-child,
+	.ly-2-third.preserve-next > *:last-child,
+	.ly-2-third-rev.preserve-next > *:first-child,
+	.ly-2-third-rev.preserve-next > *:last-child,
+	.ly-3-third.preserve-next > *,
+	.ly-4-fourth.preserve-next > * { width: 100%; }
+
+	/*start-last class will trigger the ly- classes at this point*/
+	.ly-2-half.start-last > * { width: 50%; }
+	.ly-3-third.start-last > * { width: 33.3333%; }
+	.ly-4-fourth.start-last > * { width: 25%; }
+}
